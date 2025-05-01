@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: my-container
-        image: nicklovenspierrelouis/nick:latest
+        image: nicklovenspierrelouis/nick:dev
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
