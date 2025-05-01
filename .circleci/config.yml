@@ -12,12 +12,12 @@ jobs:
       - run:
           name: Build Docker Image
           command: |
-            docker build -t nicklovenspierrelouis/nick:preprod .
+            docker build -t nicklovenspierrelouis/nick:qa .
       - run:
           name: Push Docker Image
           command: |
             docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
-            docker push nicklovenspierrelouis/nick:preprod
+            docker push nicklovenspierrelouis/nick:qa
   deploy:
     docker:
       - image: python:3.8
@@ -32,4 +32,4 @@ jobs:
       - run:
           name: Deploy to Kubernetes
           command: |
-            kubectl set image deployment/my-k8s-deployment my-container=nicklovenspierrelouis/nick:preprod
+            kubectl set image deployment/my-k8s-deployment my-container=nicklovenspierrelouis/nick:qa
